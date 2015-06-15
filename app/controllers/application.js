@@ -34,6 +34,16 @@ var pretender = Song.create({
 
 songs.pushObjects([blackDog, yellowLedbetter, pretender]);
 
+window.songs = songs;
+
+var alwaysWating = Song.create({
+  title: 'Always Waiting',
+  band: 'Kaya Project',
+  rating: 5
+});
+
+window.newSong = alwaysWating;
+
 export default Ember.Controller.extend({
   songs: songs
 });
