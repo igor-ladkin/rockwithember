@@ -22,6 +22,10 @@ html, body {
   padding-left: 0;
 }
 
+.info {
+  padding-right: 0;
+}
+
 .songs .rating {
   color: #aaa;
   font-size: 1.1em;
