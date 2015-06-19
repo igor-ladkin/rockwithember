@@ -38,8 +38,12 @@ var bands = BandsCollection.create();
 var ledZeppelin = Band.create({ name: 'Led Zeppelin', songs: [blackDog] });
 var pearlJam = Band.create({ name: 'Pearl Jam', songs: [daughter, yellowLedbetter] });
 var fooFighters = Band.create({ name: 'Foo Fighters', songs: [pretender] });
+var u2 = Band.create({
+  name: 'U2',
+  description: 'U2 are an Irish rock band from Dublin.'
+});
 
-bands.pushObjects([ledZeppelin, pearlJam, fooFighters]);
+bands.pushObjects([ledZeppelin, pearlJam, fooFighters, u2]);
 
 export default Ember.Route.extend({
   model: function() {
