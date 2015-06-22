@@ -1,7 +1,5 @@
 import Ember from 'ember';
 
-import Song from '../../models/song';
-
 export default Ember.Route.extend({
   model: function() {
     return this.modelFor('band').get('songs');
@@ -30,7 +28,12 @@ export default Ember.Route.extend({
       var song = params.item;
       var rating = params.rating;
 
+      if (song.get('rating') === rating) {
+        rating = 0;
+      }
+
       song.set('rating', rating);
+      song.save();
     }
   }
 });
