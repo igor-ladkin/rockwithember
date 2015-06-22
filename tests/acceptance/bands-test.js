@@ -2,6 +2,7 @@ import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'rarwe/tests/helpers/start-app';
 import Pretender from 'pretender';
+import httpStubs from '../helpers/http-stubs';
 
 var application,
     server;
@@ -19,15 +20,11 @@ module('Acceptance | bands', {
 
 test('List bands', function(assert) {
   server = new Pretender(function() {
-    this.get('/bands', function(request) {
-      var bands = JSON.stringify({
-        bands: [
-          { id: 1, name: 'Radiohead' },
-          { id: 2, name: 'Long Distance Calling' }
-        ]
-      });
-
-      return [200, { 'Content-Type': 'application/json' }, bands];
+    httpStubs.stubBands(this, {
+      bands: [
+        { id: 1, name: 'Radiohead' },
+        { id: 2, name: 'Long Distance Calling' }
+      ]
     });
   });
 
@@ -42,23 +39,13 @@ test('List bands', function(assert) {
 
 test('Create a new band', function(assert) {
   server = new Pretender(function() {
-    this.get('/bands', function(request) {
-      var bands = JSON.stringify({
-        bands: [
-          { id: 1, name: 'Radiohead' }
-        ]
-      });
-
-      return [200, { 'Content-Type': 'application/json' }, bands];
+    httpStubs.stubBands(this, {
+      bands: [
+        { id: 1, name: 'Radiohead' }
+      ]
     });
 
-    this.post('/bands', function(request) {
-      var band = JSON.stringify({
-        band: { id: 2, name: 'Long Distance Calling' }
-      });
-
-      return [200, { 'Content-Type': 'application/json' }, band];
-    });
+    httpStubs.stubCreateBand(this, { id: 2, name: 'Long Distance Calling' });
   });
 
   visit('/bands');
