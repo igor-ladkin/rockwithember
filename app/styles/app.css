@@ -102,3 +102,81 @@ html, body {
 .band-description-header {
   margin-bottom: 20px;
 }
+
+.song-filter-search-panel { 
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: block;
+}
+
+.song-filter-search-panel a{
+  text-decoration: none;
+}
+
+.song-filter-search-panel .active .sorting-button { 
+  z-index: 2;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #428bca; 
+}
+
+.song-filter-search-panel .sorting-link + .sorting-link { 
+  margin-left: 5px;
+}
+
+.sorting-panel { 
+  float: left;
+  width: 100%;
+}
+@media (max-width: 690px) { 
+  .sorting-panel {
+    margin-bottom: 5px;
+  }
+}
+
+.search-panel { 
+  display: inline-block; 
+  float: right;
+}
+
+.search-panel input { 
+  padding: 4px 1px 6px;
+}
+
+.search-panel .input-group-btn { 
+  display: inline-block;
+}
+
+.search-panel .input-group-btn .search-button { 
+  margin-left: -5px;
+}
+
+.loading-pane {
+  margin: 25px auto;
+}
+
+.loading-message {
+  text-align: center;
+  color: #aaa;
+}
+
+.error-pane {
+  margin: 25px auto;
+  background-color: rgba(255, 176, 176, 0.33);
+}
+
+.error-message {
+  text-align: center;
+  color: #e22626;
+  line-height: 100px;
+}
+
+.spinner {
+  background: url('/images/ajax-loader.gif') no-repeat;
+  height: 31px;
+  width: 31px;
+  margin: 0 auto;
+}
